@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quillery: procedure records for regulated sites</title>
+<meta name="description" content="Quillery files a record for every finished task against the procedure version it followed, so inspectors can see what was done, under which version, and who changed it.">
+<script>
+  // Set the theme before first paint: the saved choice, else the system's.
+  (function () {
+    var t = null;
+    try { t = localStorage.getItem("quillery-theme"); } catch (e) {}
+    if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.setAttribute("data-theme", t);
+  })();
+</script>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 16 16%27%3E%3Cg fill=%27%231daf9c%27%3E%3Cpath d=%27M3 2h12l-2 3H1z%27/%3E%3Cpath d=%27M3 6.5h12l-2 3H1z%27 opacity=%27.7%27/%3E%3Cpath d=%27M3 11h12l-2 3H1z%27 opacity=%27.45%27/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preload" href="/fonts/mona-sans.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/src/style.css">
+<style>
+/* The credit every Illos example carries. It takes the footer's own text colour, so it fits light and dark. */
+a.illos-credit.illos-credit { display: inline-flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px 0 10px; border-radius: 999px; border: 1px solid color-mix(in srgb, currentColor 22%, transparent); color: inherit; font-size: 13px; font-weight: 400; line-height: 1; letter-spacing: normal; text-transform: none; text-decoration: none; white-space: nowrap; transition: border-color 150ms ease-out; }
+.illos-credit svg { width: 14px; height: 14px; flex: none; fill: currentColor; }
+@media (hover: hover) and (pointer: fine) { a.illos-credit.illos-credit:hover { border-color: color-mix(in srgb, currentColor 45%, transparent); } }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#main" aria-label="Quillery home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h17l-3 5H2z"/><path d="M5 9.5h17l-3 5H2z" opacity=".65"/><path d="M5 16h17l-3 5H2z" opacity=".35"/></svg>
+      Quillery
+    </a>
+    <nav class="links" id="menu" aria-label="Main">
+      <a href="#why">The gap</a>
+      <a href="#platform">Versions</a>
+      <a href="#record">Records</a>
+      <a href="#security">Access</a>
+      <a href="#uses">Sites</a>
+      <a class="btn menu-cta" href="#cta">Request a demo</a>
+    </nav>
+    <div class="nav-r">
+      <button class="theme" id="theme" type="button" aria-label="Switch to dark theme"><span class="theme-dot" aria-hidden="true"></span><span class="theme-l" id="theme-l">Dark</span></button>
+      <a class="btn btn-sm nav-cta" href="#cta">Request a demo</a>
+      <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="menu" aria-label="Open menu"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- hero -->
+  <section class="wrap hero">
+    <div class="bento">
+      <div class="tile hero-copy">
+        <h1>Every task files its own record.</h1>
+        <div class="hero-side">
+          <p class="lede">When a team finishes a task, Quillery files a record against the procedure version they followed. Inspectors see the version, the person and the time without anyone digging through binders.</p>
+          <div class="ctas">
+            <a class="btn" href="#cta">Request a demo</a>
+            <a class="btn ghost" href="#record">Open a sample record</a>
+          </div>
+        </div>
+      </div>
+      <div class="tile art hero-art" data-illos><!-- illos:records --></div>
+      <div class="tile hero-meta">
+        <div>
+          <p class="label">Built for</p>
+          <ul class="teams"><li>Food plants</li><li>Clinics</li><li>Labs</li></ul>
+        </div>
+        <div class="hero-stat">
+          <p class="label">Records tied to a version</p>
+          <p class="stat">100%</p>
+          <p class="stat-note">A task can't close without one, so there are no gaps to chase before an inspection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- why -->
+  <section class="wrap sec" id="why">
+    <div class="bento why">
+      <div class="tile why-head">
+        <p class="label">The gap</p>
+        <h2>The procedure changed in May. <span class="soft">Can you prove who followed which one?</span></h2>
+      </div>
+      <article class="tile why-card">
+        <p class="idx" aria-hidden="true">01</p>
+        <p class="kicker">The paper binder.</p>
+        <h3>Signed sheets with no version on them.</h3>
+        <p>Staff tick boxes on a printed form. A year later, nobody can say which copy of the procedure sat on the clipboard.</p>
+        <ul class="tags"><li>Binders</li><li>Sign-off sheets</li><li>Scans</li></ul>
+      </article>
+      <article class="tile why-card">
+        <p class="idx" aria-hidden="true">02</p>
+        <p class="kicker">The change email.</p>
+        <h3>Sent to everyone. Read by some.</h3>
+        <p>A new version goes out as an attachment. One shift opens it, another keeps the old printout, and the log can't tell them apart.</p>
+        <ul class="tags"><li>Email</li><li>Attachments</li><li>Memos</li></ul>
+      </article>
+      <article class="tile why-card wide">
+        <p class="idx" aria-hidden="true">03</p>
+        <div>
+          <p class="kicker">Document control.</p>
+          <h3>Keeps every version. Records none of the work.</h3>
+        </div>
+        <div>
+          <p>It knows version 4.2 replaced 4.1 on the 3rd. It cannot tell an inspector which one Tuesday's batch was made under.</p>
+          <ul class="tags"><li>Document systems</li><li>PDFs</li><li>Approvals</li></ul>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- platform -->
+  <section class="wrap sec" id="platform">
+    <div class="bento plat">
+      <div class="tile plat-head">
+        <p class="label">Versions</p>
+        <h2>A sign-off says the task was done. <span class="soft">Quillery adds which procedure it followed.</span></h2>
+        <p>Each record carries the procedure, its version and who approved that version. Flip the switch to compare a binder with Quillery.</p>
+      </div>
+      <div class="tile plat-demo">
+        <div class="seg" id="seg" role="tablist" aria-label="Compare a paper binder with Quillery">
+          <span class="seg-thumb" aria-hidden="true"></span>
+          <button type="button" role="tab" id="seg-wiki" aria-controls="view-wiki" aria-selected="false" tabindex="-1">Binder</button>
+          <button type="button" role="tab" id="seg-live" aria-controls="view-live" aria-selected="true">Quillery</button>
+        </div>
+        <div class="views">
+          <div class="view" id="view-wiki" role="tabpanel" aria-labelledby="seg-wiki">
+            <div class="view-top">
+              <div><p class="pill"><i></i>Unlinked</p><h3>A binder holds the signature.</h3><p class="sub">Not the version that was on the clipboard.</p></div>
+              <div class="score"><span>36%</span><small>with a version</small></div>
+            </div>
+            <ul class="files">
+              <li><span class="f"><i></i>line-2-sanitation.pdf</span><em>No version</em></li>
+              <li><span class="f"><i></i>allergen-changeover.pdf</span><em>No version</em></li>
+              <li><span class="f"><i></i>autoclave-cycle.pdf</span><em>No version</em></li>
+              <li><span class="f"><i></i>room-4-turnover.pdf</span><em>No version</em></li>
+              <li><span class="f"><i></i>sample-intake.pdf</span><em>No version</em></li>
+            </ul>
+          </div>
+          <div class="view is-live" id="view-live" role="tabpanel" aria-labelledby="seg-live">
+            <div class="view-top">
+              <div><p class="pill ok"><i></i>Linked</p><h3>Quillery files the version with the task.</h3><p class="sub">Each record names the procedure in force.</p></div>
+              <div class="score"><span>100%</span><small>with a version</small></div>
+            </div>
+            <ul class="files">
+              <li><span class="f"><i></i>line-2-sanitation v4.2</span><em class="tick" data-s="1">1s ago</em></li>
+              <li><span class="f"><i></i>allergen-changeover v3.1</span><em class="tick" data-s="4">4s ago</em></li>
+              <li><span class="f"><i></i>autoclave-cycle v6.4</span><em class="tick" data-s="7">7s ago</em></li>
+              <li><span class="f"><i></i>room-4-turnover v2.6</span><em class="tick" data-s="10">10s ago</em></li>
+              <li><span class="f"><i></i>sample-intake v5.3</span><em class="tick" data-s="13">13s ago</em></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- living record -->
+  <section class="wrap sec" id="record">
+    <div class="bento rec">
+      <div class="tile art rec-art" data-illos><!-- illos:source --></div>
+      <div class="tile rec-chat">
+        <p class="crumb">Ask Quillery <span aria-hidden="true">&rsaquo;</span> Inspection prep</p>
+        <p class="bubble">Which allergen changeover did line 2 follow on 14 May?</p>
+        <div class="ans">
+          <span class="av" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 3h17l-3 5H2z"/><path d="M5 9.5h17l-3 5H2z" opacity=".65"/><path d="M5 16h17l-3 5H2z" opacity=".35"/></svg></span>
+          <p>Version 3.1, approved on 2 May. The night shift ran it at 22:40 and signed the record. Version 3.2 only came into force on 20 May.</p>
+        </div>
+        <p class="label">Sources</p>
+        <div class="chips" id="chips" role="group" aria-label="Sources">
+          <button type="button" aria-pressed="false" data-path="/records/line-2/0514-changeover" data-who="Night shift" data-when="14 May">Batch record</button>
+          <button type="button" aria-pressed="true" data-path="/procedures/allergen/v3.1" data-who="QA lead" data-when="02 May">Procedure</button>
+          <button type="button" aria-pressed="false" data-path="/procedures/allergen/v3.2" data-who="QA lead" data-when="20 May">Next version</button>
+          <button type="button" aria-pressed="false" data-path="/training/night-shift/allergen" data-who="Site trainer" data-when="28 Apr">Training</button>
+          <button type="button" aria-pressed="false" data-path="/signoffs/line-2/0514" data-who="Shift lead" data-when="14 May">Sign-off</button>
+        </div>
+        <div class="pop" id="pop" aria-live="polite">
+          <p class="pop-path">/procedures/allergen/v3.1</p>
+          <dl><dt>Changed by</dt><dd>QA lead</dd><dt>When</dt><dd>02 May</dd></dl>
+        </div>
+      </div>
+      <p class="tile rec-note">Tap a source to open the record behind the answer. It shows the procedure version in force and the person who changed it last. <span class="soft">Inspectors check it themselves, so nobody has to vouch for it.</span></p>
+    </div>
+  </section>
+
+  <!-- statement -->
+  <section class="wrap stmt">
+    <h2>What your team <span class="soft">did</span> is what the inspector <span class="acc">sees.</span></h2>
+  </section>
+
+  <!-- cost -->
+  <section class="wrap sec" id="cost">
+    <div class="tile cost">
+      <div class="cost-copy">
+        <p class="label">Rollout</p>
+        <h2>Your first site takes a week. <span class="soft">The next one takes an afternoon.</span></h2>
+        <p>Load your procedures, map who signs what and set the scopes once. A new site copies that setup and files its first records the same day.</p>
+      </div>
+      <div class="cost-chart" id="chart">
+        <table>
+          <caption class="sr-only">Setup hours and procedures reused for each new site</caption>
+          <thead><tr><th scope="col"><span class="col-p">Site</span></th><th scope="col">Setup hours per site</th><th scope="col">Procedures reused</th></tr></thead>
+          <tbody>
+            <tr><th scope="row">01</th><td><span class="bar"><i style="--v:1"></i></span><b>40</b></td><td class="v"><span class="bar"><i style="--v:.03"></i></span><b>0%</b></td></tr>
+            <tr><th scope="row">02</th><td><span class="bar"><i style="--v:.45"></i></span><b>18</b></td><td class="v"><span class="bar"><i style="--v:.55"></i></span><b>55%</b></td></tr>
+            <tr><th scope="row">03</th><td><span class="bar"><i style="--v:.23"></i></span><b>9</b></td><td class="v"><span class="bar"><i style="--v:.78"></i></span><b>78%</b></td></tr>
+            <tr><th scope="row">04</th><td><span class="bar"><i style="--v:.13"></i></span><b>5</b></td><td class="v"><span class="bar"><i style="--v:.9"></i></span><b>90%</b></td></tr>
+            <tr><th scope="row">05</th><td><span class="bar"><i style="--v:.1"></i></span><b>4</b></td><td class="v"><span class="bar"><i style="--v:.94"></i></span><b>94%</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- security -->
+  <section class="wrap sec" id="security">
+    <div class="tile sec-tile on-dark">
+      <div class="sec-copy">
+        <p class="label">Access and audit</p>
+        <h2>A request without scope <span class="soft">never reaches the records.</span></h2>
+        <p>Quillery checks every read, edit and tool action against the scope of the person or bot asking. Allowed requests go through, the rest stop at the gate, and each one prints a line in the audit log.</p>
+        <ul class="sec-list"><li>Scopes by role and site</li><li>Blocked edits stay blocked</li><li>An audit line per request</li></ul>
+      </div>
+      <div class="sec-art" data-illos><!-- illos:gate --></div>
+    </div>
+  </section>
+
+  <!-- use cases -->
+  <section class="wrap sec" id="uses">
+    <div class="uses-head">
+      <p class="label">Sites</p>
+      <h2>Where inspections are part of the week.</h2>
+    </div>
+    <div class="bento uses">
+      <article class="tile use">
+        <p class="kicker"><i></i>Food production</p>
+        <h3>Allergen and sanitation records.</h3>
+        <p>A line switches from a nut product to a nut-free one. The crew follows the changeover steps on a tablet, and Quillery files the record with the version, the crew and the swab result before the line restarts.</p>
+      </article>
+      <article class="tile use">
+        <p class="kicker"><i></i>Outpatient clinics</p>
+        <h3>Room turnover and sterilization.</h3>
+        <p>Nurses log each instrument cycle and room clean as they finish it. When the infection control procedure changes, every record from that hour on points to the new version.</p>
+      </article>
+      <article class="tile use">
+        <p class="kicker"><i></i>Testing labs</p>
+        <h3>Sample handling and calibration.</h3>
+        <p>Each sample builds a chain of records from intake to report. An assessor can pick any result and see the method version used and who calibrated the instrument that morning.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- cta -->
+  <section class="wrap sec" id="cta">
+    <div class="tile cta">
+      <h2>Send us one procedure. <span class="soft">We'll show you the record it files.</span></h2>
+      <div class="ctas">
+        <a class="btn" href="#">Send a procedure</a>
+        <a class="btn ghost" href="#">Request a demo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <div class="foot-top">
+    <a class="brand" href="#main">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h17l-3 5H2z"/><path d="M5 9.5h17l-3 5H2z" opacity=".65"/><path d="M5 16h17l-3 5H2z" opacity=".35"/></svg>
+      Quillery
+    </a>
+    <nav class="foot-links" aria-label="Footer">
+      <a href="#why">The gap</a><a href="#platform">Versions</a><a href="#record">Records</a><a href="#security">Access</a><a href="#">Setup guide</a><a href="#">Inspection notes</a><a href="#">Status</a><a href="#cta">Request a demo</a>
+    </nav>
+  </div>
+  <div class="legal">
+    <span>&copy; 2026 Quillery. A made-up product.</span>
+    <a class="illos-credit" href="https://illos.dev/?utm_source=quillery-template&amp;utm_medium=example" rel="noopener"><svg viewBox="-26.8 0 400 400" aria-hidden="true"><path fill-rule="evenodd" d="M0,253.81 L0,100 L173.21,0 L346.41,100 L346.41,300 L173.21,400 L76.6,344.23 L76.6,204 L116.6,227.09 L116.6,321.13 L173.21,353.81 L306.41,276.91 L306.41,123.09 L173.21,46.19 L40,123.09 L40,276.91 Z M76.6,140 L116.6,163.09 L116.6,203.09 L76.6,180 Z"/></svg>Animated assets by Illos</a>
+    <span class="legal-links"><a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a></span>
+  </div>
+</footer>
+
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

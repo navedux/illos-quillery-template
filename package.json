@@ -1,0 +1,16 @@
+{
+  "name": "quillery-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A landing page template for a company knowledge product, illustrated with animated Illos Isometric illustrations.",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "scripts": {
+    "dev": "vite --port 4882 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 4882 --strictPort"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}
